@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Earth Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Random Earth Facts</h1>
+    </header>
+    <main>
+        <button id="randomFactButton">Show Random Fact</button>
+        <p id="factDisplay"></p>
+    </main>
+    <script>
+        const facts = [
+            "Earth is the third planet from the Sun.",
+            "Earth is the only known planet to support life.",
+            "About 71% of Earth's surface is covered with water.",
+            "Earth has one natural satellite, the Moon.",
+            "Earth's atmosphere is composed of 78% nitrogen, 21% oxygen, and trace amounts of other gases.",
+            "The Earth's rotation is gradually slowing, at a rate of approximately 17 milliseconds per century.",
+            "Earth's inner core is as hot as the surface of the Sun, with temperatures reaching up to 5,700 K (5,427 °C).",
+            "The Earth is approximately 4.5 billion years old.",
+            "Earth's magnetic field protects it from solar and cosmic radiation.",
+            "The highest point on Earth is Mount Everest, which stands at 8,848 meters (29,029 feet) above sea level."
+        ];
+
+        document.getElementById('randomFactButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.textContent = facts[randomIndex];
+            factDisplay.style.animation = 'none';
+            setTimeout(() => factDisplay.style.animation = '', 10); // Reset animation
+        });
+    </script>
+</body>
+</html>
+
